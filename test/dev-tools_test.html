@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>dev-tools test</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+
+  <link rel="import" href="../dev-tools.html">
+</head>
+<body>
+<test-fixture id="basic">
+  <template>
+    <dev-tools></dev-tools>
+  </template>
+</test-fixture>
+
+<script>
+  suite('dev-tools', function () {
+    test('instantiating the element works', function () {
+      var element = fixture('basic');
+      assert.equal(element.is, 'dev-tools');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<!--
+`json-viewer`
+
+@demo demo/json-viewer.html
+-->
+
+<dom-module id="json-viewer">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      pre {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+        overflow: auto;
+        overflow-y: hidden;
+        line-height: 20px;
+        background: black;
+        border: 1px solid #777;
+        padding: 10px;
+        color: var(--paper-grey-50);
+        word-break: keep-all;
+        white-space: pre-wrap; /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+      }
+    </style>
+    <pre>{{getHumanJSON(json)}}</pre>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'json-viewer',
+
+      properties: {
+        json: {
+          type: Object,
+          value: {
+            01: "hello",
+            02: "world",
+            03: "demo",
+            04: "working"
+          }
+        }
+      },
+
+      getHumanJSON(object) {
+        return JSON.stringify(object, null, 4);
+      },
+    });
+  </script>
+</dom-module>
